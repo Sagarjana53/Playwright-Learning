@@ -46,11 +46,11 @@ test("static web table", async ({ page }) => {
     console.log('Printing all Table Data.......');
     const allRowData = await rows.all(); // get all row locators // all() returns array of locators
     console.log("BookName   Author   subject   price");
-    for (let row of allRowData.slice(1)) { // slice(1) --> skip header row
+    for (let row of allRowData.slice(1)) { // slice(1) --> skip the top most row
         const cols = await row.locator('td').allInnerTexts();
         console.log(cols.join('\t'));
     }
-
+    
 
     // 5) Print book names where author is Mukesh
     console.log("Books written by Mukesh......");
